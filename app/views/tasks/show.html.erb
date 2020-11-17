@@ -2,5 +2,10 @@
 <p><strong>Task Details: </strong><%= @task.details %></p>
 <p><%= check_box_tag 'done', '1', @task.completed %> This task is completed</p>
 
+<%= link_to "Edit Task", edit_task_path(@task) %>
+<%= link_to "Delete Task",
+            task_path(@task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
 
 <%= link_to "Back to the list", tasks_path %>
