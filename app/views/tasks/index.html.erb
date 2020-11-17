@@ -1,13 +1,17 @@
-<h1>My Tasks</h1>
+<div class="container">
+  <h1>My Tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= check_box_tag 'done', '1', task.completed %>
+        <%= link_to task.title, task_path(task) %>
+      </li>
+    <% end %>
+  </ul>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-      <%= check_box_tag 'done', '1', task.completed %>
-      <%= link_to task.title, task_path(task) %>
-    </li>
-  <% end %>
-</ul>
+  <button type="button" class="btn btn-light">
+    <%= link_to "Create a new task", tasks_new_path %>
+  </button>
+</div>
 
-<%= link_to "Create a new task", tasks_new_path %>
 
